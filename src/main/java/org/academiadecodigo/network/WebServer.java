@@ -112,7 +112,6 @@ public class WebServer {
             }
 
             String filePath = getPathForResource(resource);
-            System.out.println("filePath: " + filePath);
             if (!HttpMedia.isSupported(filePath)) {
                 logger.log(Level.WARNING, "request for content type not supported from " + getAddress(clientSocket));
                 reply(out, HttpHelper.unsupportedMedia());
