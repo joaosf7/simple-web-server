@@ -7,7 +7,7 @@ This is a single-threaded simple web server implementation in Java.
 1. Clone the repository:
    git clone https://github.com/joaosf7/simple-web-server.git<br>
 3. Build the project:
-   mvn clean install<br>
+   mvn clean package<br>
 5. Run the JAR file:
    java -jar target/simple-web-server-1.0-SNAPSHOT.jar<br>
 
