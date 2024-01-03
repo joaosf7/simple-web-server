@@ -16,7 +16,7 @@ public class WebServer {
 
     private static final Logger logger = Logger.getLogger(WebServer.class.getName());
 
-    public static final String DOCUMENT_ROOT = "www/";
+    public static final String DOCUMENT_ROOT = "src/main/resources/www/";
     public static final int DEFAULT_PORT = 8085;
 
     private ServerSocket bindSocket = null;
@@ -112,6 +112,7 @@ public class WebServer {
             }
 
             String filePath = getPathForResource(resource);
+            System.out.println("filePath: " + filePath);
             if (!HttpMedia.isSupported(filePath)) {
                 logger.log(Level.WARNING, "request for content type not supported from " + getAddress(clientSocket));
                 reply(out, HttpHelper.unsupportedMedia());
@@ -174,7 +175,7 @@ public class WebServer {
         Matcher matcher = pattern.matcher(filePath);
 
         if (!matcher.find()) {
-            filePath += "/index.html";
+            filePath += "index.html";
         }
 
         filePath = WebServer.DOCUMENT_ROOT + filePath;
